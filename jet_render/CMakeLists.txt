@@ -11,6 +11,7 @@ set(GLFW_BUILD_TESTS OFF)
 set(GLFW_BUILD_DOCS OFF)
 set(GLFW_INSTALL OFF)
 
+add_subdirectory(extern/glad)
 add_subdirectory(extern/glfw)
 
 set(jet_render_headers 
@@ -23,4 +24,4 @@ set(jet_render_sources
 
 add_library(jet_render STATIC ${jet_render_headers} ${jet_render_sources})
 target_include_directories(jet_render PUBLIC include)
-target_link_libraries(jet_render PUBLIC glfw jet_core)
+target_link_libraries(jet_render PUBLIC glfw glad jet_core)

@@ -4,6 +4,7 @@
 #include <memory>
 
 #define GLFW_INCLUDE_NONE
+#include <glad/glad.h>
 #include <glfw/glfw3.h>
 #include <jet/core.h>
 
