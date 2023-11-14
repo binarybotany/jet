@@ -3,9 +3,19 @@
 #include <jet/render.h>
 #include <jet/ui.h>
 
-#include <iostream>
+#include <memory>
+
+using jet::core::logger;
+using jet::render::window;
 
 int main(int argc, char **argv) {
-  std::cout << argv[0] << std::endl;
+  auto l = std::make_shared<logger>();
+  l->set_file("jet.log");
+  l->log(jet::core::log_level::info, "Starting up");
+
+  auto w = std::make_unique<window>(l);
+  w->start_up();
+  w->shut_down();
+
   return 0;
 }
