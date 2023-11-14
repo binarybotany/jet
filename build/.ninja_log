@@ -1,0 +1,13 @@
+# ninja log v5
+36	1238	7216850233546487	bin/CMakeFiles/jet.dir/main.cc.obj	91c1ffbea4b5cc16
+16	112	7216850378879829	jet_core/CMakeFiles/jet_core.dir/core.cc.obj	da354e3d786f61c5
+32	135	7216850531905746	jet_ui/CMakeFiles/jet_ui.dir/ui.cc.obj	5bda7e45b7f1f9f4
+29	142	7216850531985541	jet_render/CMakeFiles/jet_render.dir/render.cc.obj	9f57250d725f09e3
+16	296	7216850533529616	jet_core/libjet_core.a	a08138b57792d043
+19	169	7216850596260558	jet_ioc/CMakeFiles/jet_ioc.dir/ioc.cc.obj	b5ed65b28a7109de
+28	190	7216850596430110	jet_ui/libjet_ui.a	cdda48d57140428b
+24	193	7216850596460025	jet_render/libjet_render.a	d3493efa1eee29a
+169	250	7216850597088341	jet_ioc/libjet_ioc.a	885ce6c79d80da8a
+250	390	7216850598446268	bin/jet.exe	5320bb592a98fd36
+18	521	7216850946583723	bin/CMakeFiles/jet.dir/main.cc.obj	91c1ffbea4b5cc16
+522	642	7216850947750835	bin/jet.exe	5320bb592a98fd36
