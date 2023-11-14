@@ -1,3 +1,6 @@
 [submodule "jet_render/extern/glfw"]
 	path = jet_render/extern/glfw
 	url = https://github.com/glfw/glfw.git
+[submodule "jet_ecs/extern/entt"]
+	path = jet_ecs/extern/entt
+	url = https://github.com/skypjack/entt.git

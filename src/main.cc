@@ -1,13 +1,17 @@
 #include <jet/core.h>
+#include <jet/ecs.h>
 #include <jet/ioc.h>
 #include <jet/render.h>
 #include <jet/ui.h>
 
+#include <cstdint>
 #include <memory>
 
 using jet::core::logger;
 using jet::core::publisher;
 using jet::core::subscriber;
+using jet::ecs::entity;
+using jet::ecs::entity_manager;
 using jet::render::window;
 
 struct some_event {
@@ -53,6 +57,29 @@ int main(int argc, char **argv) {
   some_event e;
   e.id = 201;
   p->publish(e);
+
+  auto em = std::make_unique<entity_manager>();
+
+  entity entity1 = em->create_entity();
+  em->add_component<int>(entity1, 100);
+  em->add_component<std::string>(entity1,
+                                 "String stored as component in entity1");
+
+  entity entity2 = em->create_entity();
+  em->add_component<int>(entity2, 1000);
+  em->add_component<std::string>(entity2,
+                                 "String stored as component in entity2");
+
+  l->log(jet::core::log_level::info, em->component<std::string>(entity1));
+  l->log(jet::core::log_level::info, em->component<std::string>(entity2));
+
+  em->remove_component<int>(entity1);
+  em->remove_component<int>(entity2);
+  em->remove_component<std::string>(entity1);
+  em->remove_component<std::string>(entity2);
+
+  em->destroy_entity(entity1);
+  em->destroy_entity(entity2);
 
   return 0;
 }
