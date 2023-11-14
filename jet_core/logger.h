@@ -10,16 +10,15 @@ enum class log_level { debug, info, warning, error, fatal };
 
 class logger final {
  public:
-  void set_file(const std::string &filepath);
+  logger(const std::string &filepath)
+      : log_(filepath, std::ios::out | std::ios::app) {}
 
   void log(log_level level, const std::string &message);
 
  private:
-  std::string filepath_;
-
-  std::string current_date_time();
-
-  std::string level_to_string(log_level level);
+  std::ofstream log_;
+  std::string current_date_time() const;
+  std::string level_to_string(log_level level) const;
 };
 }  // namespace jet::core
 
