@@ -4,21 +4,13 @@
 
 namespace jet::core {
 void logger::log(log_level level, const std::string &message) {
-  std::ofstream log_file(filepath_, std::ios::out | std::ios::app);
-
-  if (log_file.is_open()) {
-    log_file << "[" << current_date_time() << "] " << level_to_string(level)
-             << ": " << message << std::endl;
+  if (log_.is_open()) {
+    log_ << "[" << current_date_time() << "] " << level_to_string(level) << ": "
+         << message << std::endl;
   }
-
-  log_file.close();
 }
 
-void logger::set_file(const std::string &filepath) {
-  filepath_ = std::string(filepath.begin(), filepath.end());
-}
-
-std::string logger::current_date_time() {
+std::string logger::current_date_time() const {
   time_t now = time(0);
   struct tm tstruct;
   char buffer[80];
@@ -27,7 +19,7 @@ std::string logger::current_date_time() {
   return buffer;
 }
 
-std::string logger::level_to_string(log_level level) {
+std::string logger::level_to_string(log_level level) const {
   switch (level) {
     case log_level::debug:
       return "DEBUG";
