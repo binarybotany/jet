@@ -17,22 +17,24 @@ class publisher {
   publisher& operator=(publisher&&) = delete;
 
   void subscribe(subscriber<Event>* observer) {
-    observers_.push_back(observer);
+    subscribers_.push_back(observer);
   }
 
-  void unsubscribe(subscriber<Event>* observer) { observers_.remove(observer); }
+  void unsubscribe(subscriber<Event>* observer) {
+    subscribers_.remove(observer);
+  }
 
   void publish(Event e) {
-    auto iterator = observers_.begin();
+    auto iterator = subscribers_.begin();
 
-    while (iterator != observers_.end()) {
+    while (iterator != subscribers_.end()) {
       (*iterator)->handle(e);
       ++iterator;
     }
   }
 
  private:
-  std::list<subscriber<Event>*> observers_;
+  std::list<subscriber<Event>*> subscribers_;
 };
 }  // namespace jet::core
 
