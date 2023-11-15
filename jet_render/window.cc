@@ -2,6 +2,8 @@
 
 #include <iostream>
 
+#include "rectangle.h"
+
 using jet::core::log_level;
 
 namespace jet::render {
@@ -24,11 +26,16 @@ void window::start_up() {
     logger_->log(log_level::error, "Unable to initialize OpenGL 3.3 context");
   }
 
+  /* Test */
+  auto r = std::make_unique<rectangle>(logger_);
+
   while (!glfwWindowShouldClose(glfw_window_)) {
     glfwPollEvents();
 
-    glClearColor(0.0f, 0.0f, 1.0f, 1.0f);
+    glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
+
+    r->render();
 
     glfwSwapBuffers(glfw_window_);
   }
