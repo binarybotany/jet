@@ -13,15 +13,21 @@ set(GLFW_INSTALL OFF)
 
 add_subdirectory(extern/glad)
 add_subdirectory(extern/glfw)
+add_subdirectory(extern/stb_image)
 
 set(jet_render_headers 
-    "include/jet/render.h"
+    "object.h"
+    "program.h"
+    "rectangle.h"
+    "texture.h"
     "window.h")
 
 set(jet_render_sources
-    "render.cc"
+    "program.cc"
+    "rectangle.cc"
+    "texture.cc"
     "window.cc")
 
 add_library(jet_render STATIC ${jet_render_headers} ${jet_render_sources})
 target_include_directories(jet_render PUBLIC include)
-target_link_libraries(jet_render PUBLIC glfw glad jet_core)
+target_link_libraries(jet_render PUBLIC glfw glad jet_core stb_image)

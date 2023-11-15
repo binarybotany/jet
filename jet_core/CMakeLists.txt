@@ -8,10 +8,11 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set(jet_core_headers 
     "include/jet/core.h"
+    "file.h"
     "logger.h")
 
 set(jet_core_sources
-    "core.cc"
+    "file.cc"
     "logger.cc")
 
 add_library(jet_core STATIC ${jet_core_headers} ${jet_core_sources})
