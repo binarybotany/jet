@@ -1,0 +1,9 @@
+{
+    "name": "Something",
+    "number": 100.0,
+    "collection": [
+        100,
+        200,
+        300
+    ]
+}
